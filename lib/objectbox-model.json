@@ -1,0 +1,79 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3162655219964300224",
+      "lastPropertyId": "10:7696835913836394629",
+      "name": "Contact",
+      "properties": [
+        {
+          "id": "1:4342791405053965050",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1106580308764637734",
+          "name": "contactID",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "1:2980754089299513295"
+        },
+        {
+          "id": "3:5753893157007257153",
+          "name": "firstName",
+          "type": 9
+        },
+        {
+          "id": "4:6264031739883534797",
+          "name": "lastName",
+          "type": 9
+        },
+        {
+          "id": "5:8249830638658230718",
+          "name": "phoneNumber",
+          "type": 9
+        },
+        {
+          "id": "6:4302793105211986845",
+          "name": "streetAddress1",
+          "type": 9
+        },
+        {
+          "id": "7:3664453937749088731",
+          "name": "streetAddress2",
+          "type": 9
+        },
+        {
+          "id": "8:2403032804242916287",
+          "name": "city",
+          "type": 9
+        },
+        {
+          "id": "9:8090105228568015248",
+          "name": "state",
+          "type": 9
+        },
+        {
+          "id": "10:7696835913836394629",
+          "name": "zipCode",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:3162655219964300224",
+  "lastIndexId": "1:2980754089299513295",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
