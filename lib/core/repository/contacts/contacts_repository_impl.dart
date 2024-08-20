@@ -59,9 +59,9 @@ class ContactsRepositoryImpl extends ContactsRepository {
   }
 
   @override
-  Future<Result<ContactModel?>> readOne(int id) async {
+  Future<Result<ContactModel?>> getOne(int id) async {
     try {
-      return await _database.readOne<ContactModel>(id);
+      return await _database.getOne<ContactModel>(id);
     } catch (e, stack) {
       final FlutterErrorDetails error = handleError(
         e: e,
@@ -75,15 +75,48 @@ class ContactsRepositoryImpl extends ContactsRepository {
   }
 
   @override
-  Future<Result<List<ContactModel>>> readAll() async {
+  Future<Result<List<ContactModel>>> getAll() async {
     try {
-      return await _database.readAll<ContactModel>();
+      return await _database.getAll<ContactModel>();
     } catch (e, stack) {
       final FlutterErrorDetails error = handleError(
         e: e,
         stack: stack,
         library: 'lib/core/database/database_provider_impl.dart',
         message: 'Failed to read all contacts',
+      );
+
+      return Result.failure(error);
+    }
+  }
+
+  @override
+  Future<Result<int>> removeAll() async {
+    try {
+      return await _database.removeAll<ContactModel>();
+    } catch (e, stack) {
+      final FlutterErrorDetails error = handleError(
+        e: e,
+        stack: stack,
+        library: 'lib/core/database/database_provider_impl.dart',
+        message: 'Failed to remove all contacts',
+      );
+
+      return Result.failure(error);
+    }
+  }
+
+  @override
+  Future<Result<List<ContactModel>>> createAll(
+      List<ContactModel> contacts) async {
+    try {
+      return await _database.createAll<ContactModel>(contacts);
+    } catch (e, stack) {
+      final FlutterErrorDetails error = handleError(
+        e: e,
+        stack: stack,
+        library: 'lib/core/database/database_provider_impl.dart',
+        message: 'Failed to create contact: $contacts',
       );
 
       return Result.failure(error);

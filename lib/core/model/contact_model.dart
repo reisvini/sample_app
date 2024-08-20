@@ -3,7 +3,7 @@ import 'package:objectbox/objectbox.dart';
 @Entity()
 class ContactModel {
   @Id()
-  int id;
+  int? id;
 
   @Unique()
   final String contactID;
@@ -28,4 +28,19 @@ class ContactModel {
     required this.state,
     required this.zipCode,
   });
+
+  factory ContactModel.fromJson(Map<String, dynamic> json) {
+    return ContactModel(
+      id: null,
+      contactID: json['contactID'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      phoneNumber: json['phoneNumber'],
+      streetAddress1: json['streetAddress1'],
+      streetAddress2: json['streetAddress2'] ?? '',
+      city: json['city'],
+      state: json['state'],
+      zipCode: json['zipCode'],
+    );
+  }
 }

@@ -20,59 +20,59 @@ export 'package:objectbox/objectbox.dart'; // so that callers only have to impor
 
 final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(1, 3162655219964300224),
-      name: 'Contact',
-      lastPropertyId: const obx_int.IdUid(10, 7696835913836394629),
+      id: const obx_int.IdUid(2, 3659305083356168105),
+      name: 'ContactModel',
+      lastPropertyId: const obx_int.IdUid(10, 7897008504422954672),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 4342791405053965050),
+            id: const obx_int.IdUid(1, 8045153842491227237),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 1106580308764637734),
+            id: const obx_int.IdUid(2, 7125889361206131551),
             name: 'contactID',
             type: 9,
             flags: 2080,
-            indexId: const obx_int.IdUid(1, 2980754089299513295)),
+            indexId: const obx_int.IdUid(2, 1722492871649992245)),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5753893157007257153),
+            id: const obx_int.IdUid(3, 293850027252554802),
             name: 'firstName',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 6264031739883534797),
+            id: const obx_int.IdUid(4, 1462273034463424737),
             name: 'lastName',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 8249830638658230718),
+            id: const obx_int.IdUid(5, 404876763155789792),
             name: 'phoneNumber',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 4302793105211986845),
+            id: const obx_int.IdUid(6, 2504068881028606357),
             name: 'streetAddress1',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 3664453937749088731),
+            id: const obx_int.IdUid(7, 744609240525121975),
             name: 'streetAddress2',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 2403032804242916287),
+            id: const obx_int.IdUid(8, 1251941559791620249),
             name: 'city',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 8090105228568015248),
+            id: const obx_int.IdUid(9, 1763504027345604414),
             name: 'state',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 7696835913836394629),
+            id: const obx_int.IdUid(10, 7897008504422954672),
             name: 'zipCode',
             type: 9,
             flags: 0)
@@ -116,13 +116,24 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(1, 3162655219964300224),
-      lastIndexId: const obx_int.IdUid(1, 2980754089299513295),
+      lastEntityId: const obx_int.IdUid(2, 3659305083356168105),
+      lastIndexId: const obx_int.IdUid(2, 1722492871649992245),
       lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
-      retiredEntityUids: const [],
+      retiredEntityUids: const [3162655219964300224],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [],
+      retiredPropertyUids: const [
+        4342791405053965050,
+        1106580308764637734,
+        5753893157007257153,
+        6264031739883534797,
+        8249830638658230718,
+        4302793105211986845,
+        3664453937749088731,
+        2403032804242916287,
+        8090105228568015248,
+        7696835913836394629
+      ],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -148,7 +159,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final stateOffset = fbb.writeString(object.state);
           final zipCodeOffset = fbb.writeString(object.zipCode);
           fbb.startTable(11);
-          fbb.addInt64(0, object.id);
+          fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, contactIDOffset);
           fbb.addOffset(2, firstNameOffset);
           fbb.addOffset(3, lastNameOffset);
@@ -159,13 +170,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(8, stateOffset);
           fbb.addOffset(9, zipCodeOffset);
           fbb.finish(fbb.endTable());
-          return object.id;
+          return object.id ?? 0;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
           final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           final contactIDParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 6, '');
           final firstNameParam = const fb.StringReader(asciiOptimization: true)
@@ -207,7 +218,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
 }
 
 /// [ContactModel] entity fields to define ObjectBox queries.
-class Contact_ {
+class ContactModel_ {
   /// See [ContactModel.id].
   static final id =
       obx.QueryIntegerProperty<ContactModel>(_entities[0].properties[0]);

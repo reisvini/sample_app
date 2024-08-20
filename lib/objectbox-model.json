@@ -4,60 +4,60 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:3162655219964300224",
-      "lastPropertyId": "10:7696835913836394629",
-      "name": "Contact",
+      "id": "2:3659305083356168105",
+      "lastPropertyId": "10:7897008504422954672",
+      "name": "ContactModel",
       "properties": [
         {
-          "id": "1:4342791405053965050",
+          "id": "1:8045153842491227237",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:1106580308764637734",
+          "id": "2:7125889361206131551",
           "name": "contactID",
           "type": 9,
           "flags": 2080,
-          "indexId": "1:2980754089299513295"
+          "indexId": "2:1722492871649992245"
         },
         {
-          "id": "3:5753893157007257153",
+          "id": "3:293850027252554802",
           "name": "firstName",
           "type": 9
         },
         {
-          "id": "4:6264031739883534797",
+          "id": "4:1462273034463424737",
           "name": "lastName",
           "type": 9
         },
         {
-          "id": "5:8249830638658230718",
+          "id": "5:404876763155789792",
           "name": "phoneNumber",
           "type": 9
         },
         {
-          "id": "6:4302793105211986845",
+          "id": "6:2504068881028606357",
           "name": "streetAddress1",
           "type": 9
         },
         {
-          "id": "7:3664453937749088731",
+          "id": "7:744609240525121975",
           "name": "streetAddress2",
           "type": 9
         },
         {
-          "id": "8:2403032804242916287",
+          "id": "8:1251941559791620249",
           "name": "city",
           "type": 9
         },
         {
-          "id": "9:8090105228568015248",
+          "id": "9:1763504027345604414",
           "name": "state",
           "type": 9
         },
         {
-          "id": "10:7696835913836394629",
+          "id": "10:7897008504422954672",
           "name": "zipCode",
           "type": 9
         }
@@ -65,15 +65,28 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:3162655219964300224",
-  "lastIndexId": "1:2980754089299513295",
+  "lastEntityId": "2:3659305083356168105",
+  "lastIndexId": "2:1722492871649992245",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    3162655219964300224
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    4342791405053965050,
+    1106580308764637734,
+    5753893157007257153,
+    6264031739883534797,
+    8249830638658230718,
+    4302793105211986845,
+    3664453937749088731,
+    2403032804242916287,
+    8090105228568015248,
+    7696835913836394629
+  ],
   "retiredRelationUids": [],
   "version": 1
 }
